@@ -28,7 +28,7 @@
 
         ],
     },
-    'images':['Training_Management/static/description/banner.gif'],
+    'images':['Training_Management/static/description/icon.png'],
     'demo': [],
     'qweb': [],
     'installable': True,
