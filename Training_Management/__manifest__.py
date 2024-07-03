@@ -7,7 +7,7 @@
     'author': 'Focus Corporation',
     'company': 'Focus corporation',
     'website':'https://focus-corporation.com/',
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
     'depends': [
         'hr', 'base','hr_skills','board'
     ],
