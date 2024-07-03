@@ -28,7 +28,7 @@
 
         ],
     },
-    'images':['/static/description/photo.gif'],
+    'images':['/static/description/banner.gif'],
     'demo': [],
     'qweb': [],
     'installable': True,
