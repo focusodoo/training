@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="eval_tree_view" model="ir.ui.view">
+        <field name="name">Evaluation Eval Tree</field>
+        <field name="model">hr.training</field>
+        <field name="arch" type="xml">
+            <tree string="Employee Evaluation" delete="0" create="0">
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <button string="On The Spot Evaluation" name="action_on_spot_evaluation" type="object" icon="fa-reply"/>
+                <button string="Follow Up Evaluation" name="action_follow_evaluation" type="object" icon="fa-reply"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="employee_eval_action" model="ir.actions.server">
+        <field name="name">Employee Evaluation</field>
+        <field name="model_id" ref="model_hr_training"/>
+        <field name="binding_model_id" ref="model_hr_training"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.employee_evaluation()
+        </field>
+    </record>
+
+
+    <menuitem id="menu_employee_eval"
+              name="Employee Evaluation"
+              parent="menu_evaluation"
+              action="employee_eval_action"
+              groups="Training_Management.group_hr_training_manager"
+
+              sequence="30"
+    />
+
+</odoo>

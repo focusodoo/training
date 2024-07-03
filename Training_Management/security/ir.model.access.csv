@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_training_organization,training.organization,model_training_organization,,1,1,1,1
+access_training_trainer,training.trainer,model_training_trainer,,1,1,1,1
+access_hr_training,hr_training,model_hr_training,,1,1,1,1
+access_evaluation_management,evaluation.management,model_evaluation_management,,1,1,1,1
+access_evaluation_trainee,evaluation.trainee,model_evaluation_trainee,,1,1,1,1
+access_hr_trainee,hr.trainee,model_hr_trainee,,1,1,1,1
+access_training_technology,training.technology,model_training_technology,,1,1,1,1
+access_training_objective,training.objective,model_training_objective,,1,1,1,1
+access_evaluation_report_by_training,evaluation.report.by.training,model_evaluation_report_by_training,,1,1,1,1

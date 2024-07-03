@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="evaluation_by_employee_form_view" model="ir.ui.view">
+        <field name="name">Employee training Evaluation</field>
+        <field name="model">evaluation.management</field>
+        <field name="arch" type="xml">
+            <form  string="Employee Evaluation" create="false" delete ="0">
+                <sheet>
+                    <group>
+                    
+                        <separator  style="text-align: center; background: #ecf0f3; padding: 10px; padding-left: 20px; height: 50px; font-size: 14px; border-radius: 50px; box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;" string="Training Evaluation" delete ="0"/>
+                        <separator  style=" background: #ecf0f3; padding: 10px; padding-left: 20px; height: 50px; font-size: 14px; border-radius: 50px; box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;" string="Overall Satisfaction" delete ="0"/>      
+                        <field name="question1" widget="radio" options="{'horizontal': true}"/>
+                        <separator style=" background: #ecf0f3; padding: 10px; padding-left: 20px; height: 50px; font-size: 14px; border-radius: 50px; box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;" string="Program and duration"  delete ="0"/>
+                        
+                        <field name="question2" widget="radio" options="{'horizontal': true}"/>
+                        <field name="question3" widget="radio" options="{'horizontal': true}"/>
+                        <separator style=" background: #ecf0f3; padding: 10px; padding-left: 20px; height: 50px; font-size: 14px; border-radius: 50px; box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;" string="Trainer competency and pedagogy" delete ="0"/>
+                        
+                        <field name="question4" widget="radio" options="{'horizontal': true}"/>
+                        <field name="question5" widget="radio" options="{'horizontal': true}"/>
+                        <separator  style=" background: #ecf0f3; padding: 10px; padding-left: 20px; height: 50px; font-size: 14px; border-radius: 50px; box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;" string="Content" delete ="0"/>
+                        
+                        <field name="question6" widget="radio" options="{'horizontal': true}"/>
+                        <field name="question7" widget="radio" options="{'horizontal': true}"/>
+                        <separator style=" background: #ecf0f3; padding: 10px; padding-left: 20px; height: 50px; font-size: 14px; border-radius: 50px; box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;" string="Recommendation" delete ="0"/>
+
+                        <field name="question8" widget="radio" options="{'horizontal': true}"/>
+                    
+                        <field name="comment"/>
+                        
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="evaluation_tree_view" model="ir.ui.view">
+        <field name="name">Evaluation Tree</field>
+        <field name="model">hr.trainee</field>
+        <field name="arch" type="xml">
+            <tree string="Employee Evaluation" delete ="0" create="0">
+                <field name="employee_trainee" invisible="1"/>
+                <field name="training"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="evaluation_submission_date"/>
+                <button string="Evaluate" name="action_evaluate_by_employee" type="object" icon="fa-reply"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_evaluation_action_by_employee" model="ir.actions.server">
+        <field name="name">creation Trainee Employee Action</field>
+        <field name="model_id" ref="model_hr_trainee"/>
+        <field name="binding_model_id" ref="model_hr_trainee"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.creation_trainee_eval_function()
+        </field>
+    </record>
+
+    <record id="evaluation_tree_view_for_notif" model="ir.ui.view">
+        <field name="name">Evaluation Tree</field>
+        <field name="model">hr.trainee</field>
+        <field name="arch" type="xml">
+            <tree string="Employee Evaluation" delete ="0" create="0">
+                <field name="employee_trainee"/>
+                <field name="training"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="evaluation_submission_date"/>
+                <button string="Evaluate" name="action_evaluate_by_employee" type="object" icon="fa-reply"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Filter by Training in my Evaluation-->
+    <record id="filter_training_in_my_evaluation" model="ir.ui.view">
+        <field name="model">hr.trainee.filter</field>
+        <field name="model">hr.trainee</field>
+        <field name="arch" type="xml">
+            <search string="training Filter">
+                <field name="training"/>
+
+            </search>
+        </field>
+    </record>
+
+    <!-- Filter by employee in the spot -->
+    <record id="filter_employee_in_employee_evaluation" model="ir.ui.view">
+        <field name="model">evaluation.management.filter</field>
+        <field name="model">evaluation.management</field>
+        <field name="arch" type="xml">
+            <search string="trainee Filter">
+                <field name="employee_id"/>
+
+            </search>
+        </field>
+    </record>
+
+    <record id="hr_training_action_not_evaluated" model="ir.actions.act_window">
+        <field name="name">Training</field>
+        <field name="res_model">hr.trainee</field>
+        <field name="domain">["&amp;","&amp;",("employee_trainee.user_id","=",uid),("evaluate_by_employee","=",False),"|",("date_to","=",datetime.datetime.now().strftime('%Y-%m-%d')),("date_to","&lt;",datetime.datetime.now().strftime('%Y-%m-%d'))]</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="evaluation_tree_view_for_notif"/>
+    </record>
+
+    <menuitem id="menu_evaluation_by_employee"
+              name=" My Evaluation"
+              parent="menu_evaluation"
+              action="hr_evaluation_action_by_employee"
+              sequence="20"
+    />
+
+</odoo>

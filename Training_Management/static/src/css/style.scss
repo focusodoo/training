@@ -1,0 +1,97 @@
+.o_pointer_new {
+    pointer-events: none;
+}
+.o_wrap_label {
+width: max-content;
+}
+
+.o_pointer_new {
+    pointer-events: none;
+}
+.o_wrap_label {
+width: max-content;
+}
+
+/* .o_form_label{
+    background-color: #d81b60 !important;
+  }
+   */    
+
+.coucou .form-check-input:checked + .image1{
+    display: block;
+
+
+}
+
+// ANT-IMATIONS
+@keyframes ant-3-animation {
+  0% {
+    left: 50%;
+    bottom: -60%;
+  }
+  10% {
+    left: 50%;
+    bottom: 5%;
+    transform: rotate(0deg);
+  }
+  12% {
+    left: 50%;
+    bottom: 5%;
+    transform: rotate(-90deg);
+  }
+  18% {
+    transform: rotate(-90deg);
+  }
+  20% {
+    left: 5%;
+    bottom: 5%;
+    transform: rotate(-90deg);
+  }
+  22% {
+    transform: rotate(0);
+  }
+  32% {
+    transform: rotate(0);
+  }
+  38% {
+    left: 5%;
+    bottom: 87%;
+    transform: rotate(90deg);
+  }
+  50% {
+    left: 90%;
+    bottom: 87%;
+    transform: rotate(90deg);
+  }
+  55% {
+    left: 90%;
+    bottom: 87%;
+    transform: rotate(230deg);
+  }
+  72% {
+    left: 5%;
+    bottom: 5%;
+    transform: rotate(230deg);
+  }
+  78% {
+    left: 5%;
+    bottom: 5%;
+    transform: rotate(90deg);
+  }
+  85% {
+    left: 50%;
+    bottom: 5%;
+    transform: rotate(90deg);
+  }
+  90% {
+    left: 50%;
+    bottom: 5%;
+    transform: rotate(180deg);
+  }
+  100% {
+    left: 50%;
+    bottom: -60%;
+    transform: rotate(180deg);
+  }
+}
+

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="training_pie_view" model="ir.ui.view">
+        <field name="name">Training pie</field>
+        <field name="model">evaluation.report.by.training</field>
+        <field name="arch" type="xml">
+            <graph disable_linking="1" type="pie">
+                    <field name="type" />
+                    <field name="percentage_evaluate_trainee" type="measure"/>
+
+            </graph>
+        </field>
+    </record>
+
+    <record id="training_pie2_view" model="ir.ui.view">
+        <field name="name">Training pie2</field>
+        <field name="model">evaluation.report.by.training</field>
+        <field name="arch" type="xml">
+            <graph disable_linking="1" type="pie">
+                    <field name="type_effective" />
+                    <field name="effective" type="measure"/>
+
+            </graph>
+        </field>
+    </record>
+
+    <record id="training_pie_view3" model="ir.ui.view">
+        <field name="name">Training pie3</field>
+        <field name="model">evaluation.report.by.training</field>
+        <field name="arch" type="xml">
+            <graph disable_linking="1" type="pie">
+                    <field name="response" />
+                    <field name="percentage_on_spot_eval_overall_satisfaction" type="measure"/>
+
+            </graph>
+        </field>
+    </record>
+
+    <record id="training_pie_view4" model="ir.ui.view">
+        <field name="name">Training pie4</field>
+        <field name="model">evaluation.report.by.training</field>
+        <field name="arch" type="xml">
+            <graph disable_linking="1" type="pie">
+                    <field name="response2" />
+                    <field name="percentage_program_and_duration" type="measure"/>
+
+            </graph>
+        </field>
+    </record>
+
+    <record id="training_pie_view5" model="ir.ui.view">
+        <field name="name">Training pie5</field>
+        <field name="model">evaluation.report.by.training</field>
+        <field name="arch" type="xml">
+            <graph disable_linking="1" type="pie">
+                    <field name="response3" />
+                    <field name="percentage_content" type="measure"/>
+
+            </graph>
+        </field>
+    </record>
+
+    <record id="training_pie_view6" model="ir.ui.view">
+        <field name="name">Training pie6</field>
+        <field name="model">evaluation.report.by.training</field>
+        <field name="arch" type="xml">
+            <graph disable_linking="1" type="pie">
+                    <field name="response4" />
+                    <field name="percentage_trainer_skills" type="measure"/>
+
+            </graph>
+        </field>
+    </record>
+
+    <record id="training_pie_view7" model="ir.ui.view">
+        <field name="name">Training pie7</field>
+        <field name="model">evaluation.report.by.training</field>
+        <field name="arch" type="xml">
+            <graph disable_linking="1" type="pie">
+                    <field name="response5" />
+                    <field name="percentage_training_methods" type="measure"/>
+
+            </graph>
+        </field>
+    </record>
+
+    <record id="training_pie_view8" model="ir.ui.view">
+        <field name="name">Training pie8</field>
+        <field name="model">evaluation.report.by.training</field>
+        <field name="arch" type="xml">
+            <graph disable_linking="1" type="pie">
+                    <field name="response6" />
+                    <field name="percentage_training_recommandation" type="measure"/>
+
+            </graph>
+        </field>
+    </record>
+
+    <record id="training_pie_view9" model="ir.ui.view">
+        <field name="name">Training pie9</field>
+        <field name="model">evaluation.report.by.training</field>
+        <field name="arch" type="xml">
+            <graph disable_linking="1" type="pie">
+                    <field name="response7" />
+                    <field name="percentage_training_overall_satisfaction_follow_up" type="measure"/>
+
+            </graph>
+        </field>
+    </record>
+
+    <record id="training_histogramm_action_view" model="ir.ui.view">
+        <field name="name">Training histogram</field>
+        <field name="model">evaluation.report.by.training</field>
+        <field name="arch" type="xml">
+            <graph disable_linking="1" stacked='0'>
+                <field name="response8" />
+                <field name="section" />
+
+                <field name="percentage_training_other_follow_up" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="training_pie_action" model="ir.actions.act_window">
+        <field name="name">training Pie</field>
+        <field name="res_model">evaluation.report.by.training</field>
+        <field name="domain">[('active_status' ,'=',True)]</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="training_pie_view"/>
+    </record>
+
+    <record id="training_histogramm_action" model="ir.actions.act_window">
+        <field name="name">training Histogramm</field>
+        <field name="res_model">evaluation.report.by.training</field>
+        <field name="domain">[('active_status' ,'=',True)]</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="training_histogramm_action_view"/>
+    </record>
+
+    <record id="training_pie9_action" model="ir.actions.act_window">
+        <field name="name">training Pie9</field>
+        <field name="res_model">evaluation.report.by.training</field>
+        <field name="domain">[('active_status' ,'=',True)]</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="training_pie_view9"/>
+    </record>
+
+    <record id="training_pie8_action" model="ir.actions.act_window">
+        <field name="name">training Pie8</field>
+        <field name="res_model">evaluation.report.by.training</field>
+        <field name="domain">[('active_status' ,'=',True)]</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="training_pie_view8"/>
+    </record>
+
+    <record id="training_pie7_action" model="ir.actions.act_window">
+        <field name="name">training Pie7</field>
+        <field name="res_model">evaluation.report.by.training</field>
+        <field name="domain">[('active_status' ,'=',True)]</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="training_pie_view7"/>
+    </record>
+
+    <record id="training_pie6_action" model="ir.actions.act_window">
+        <field name="name">training Pie6</field>
+        <field name="res_model">evaluation.report.by.training</field>
+        <field name="domain">[('active_status' ,'=',True)]</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="training_pie_view6"/>
+    </record>
+
+    <record id="training_pie5_action" model="ir.actions.act_window">
+        <field name="name">training Pie5</field>
+        <field name="res_model">evaluation.report.by.training</field>
+        <field name="domain">[('active_status' ,'=',True)]</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="training_pie_view5"/>
+    </record>
+
+    <record id="training_pie4_action" model="ir.actions.act_window">
+        <field name="name">training Pie2</field>
+        <field name="res_model">evaluation.report.by.training</field>
+        <field name="domain">[('active_status' ,'=',True)]</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="training_pie_view4"/>
+    </record>
+
+    <record id="training_pie3_action" model="ir.actions.act_window">
+        <field name="name">training Pie2</field>
+        <field name="res_model">evaluation.report.by.training</field>
+        <field name="domain">[('active_status' ,'=',True)]</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="training_pie_view3"/>
+    </record>
+
+    <record id="training_pie2_action" model="ir.actions.act_window">
+        <field name="name">training Pie2</field>
+        <field name="res_model">evaluation.report.by.training</field>
+        <field name="domain">[('active_status' ,'=',True)]</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="training_pie2_view"/>
+    </record>
+
+    <record id="board_list_employee_AC_tree_view" model="ir.ui.view">
+        <field name="name">List of employees AC</field>
+        <field name="model">hr.trainee</field>
+        <field name="arch" type="xml">
+            <tree string="list employee AC" editable="bottom">
+                <field name="employee_trainee" readonly="1" class="o_pointer_new"/>
+                <field name="Evaluation_Date_by_manager" readonly="1" class="o_pointer_new"/>
+                <field name="Status" readonly="1" class="o_pointer_new"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="board_general_information_of_training_tree_view" model="ir.ui.view">
+        <field name="name">General information of the training</field>
+        <field name="model">hr.training</field>
+        <field name="arch" type="xml">
+            <tree string="general information of training">
+                <field name="name"/>
+                <field name="organization"/>
+                <field name="trainer"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="training_type"/>
+                <field name="follow_date" readonly="1"/>
+                <field name="employees" widget="many2many_tags"/>
+
+            </tree>
+        </field>
+    </record>
+    
+
+
+    <record id="board_list_employee_AC" model="ir.actions.act_window">
+        <field name="name">List of employees AC</field>
+        <field name="res_model">hr.trainee</field>
+        <field name="domain">[('active_status' ,'=',True)]</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="board_list_employee_AC_tree_view"/>
+    </record>
+
+    <record id="board_general_information_of_training" model="ir.actions.act_window">
+        <field name="name">General information of the training Action</field>
+        <field name="res_model">hr.training</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">[('active_status_training' ,'=',True)]</field>
+        <field name="view_id" ref="board_general_information_of_training_tree_view"/>
+    </record>
+
+    <record id="board_training_dash_view" model="ir.ui.view">
+        <field name="name">Training Dashboard</field>
+        <field name="model">board.board</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Training Dashboard">
+                <board style="3-4">
+                    <column>
+                      
+                        <action string="General information of the training"
+                                name="%(board_general_information_of_training)d"
+                                domain="[('active_status_training' ,'=',True)]"/>
+                        <action string="List of employees AC"
+                                name="%(board_list_employee_AC)d"
+                                domain="[('active_status' ,'=',True)]"/>
+                        <action string="Pie chart describing the % of employees evaluated and not"
+                                name="%(training_pie_action)d"
+                                domain="[('active_status' ,'=',True)]"/>
+                        <action string="Pie chart describing the % of Overall Satisfaction"
+                                name="%(training_pie3_action)d"
+                                domain="[('active_status' ,'=',True)]"/>
+                        <action string="Pie chart describing the % of Program and duration"
+                                name="%(training_pie4_action)d"
+                                domain="[('active_status' ,'=',True)]"/>
+                        <action string="Pie chart describing the % of Content"
+                                name="%(training_pie5_action)d"
+                                domain="[('active_status' ,'=',True)]"/>
+                        <action string="Pie chart describing the % of Trainer Skills "
+                                name="%(training_pie6_action)d"
+                                domain="[('active_status' ,'=',True)]"/>
+                        <action string="Pie chart describing the % of Training Methods "
+                                name="%(training_pie7_action)d"
+                                domain="[('active_status' ,'=',True)]"/>
+                        <action string="Pie chart describing the % of Recomandations "
+                                name="%(training_pie8_action)d"
+                                domain="[('active_status' ,'=',True)]"/>
+                        <action string="Pie chart describing the % Overall Satisfaction Follow up"
+                                name="%(training_pie9_action)d"
+                                domain="[('active_status' ,'=',True)]"/>
+
+                        <action string="Histogram Follow up"
+                                name="%(training_histogramm_action)d"
+                                domain="[('active_status' ,'=',True)]"/>
+
+
+                    </column>
+                </board>
+            </form>
+        </field>
+    </record>
+  
+   
+     <record id="Evaluation_Report_by_Training_form" model="ir.ui.view">
+        <field name="name">"Evaluation Report by Training</field>
+        <field name="model">evaluation.report.by.training</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form  create="false" edit="false" delete="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="training_id"/>
+
+                        </group>
+                    </group>
+                    <button name="search_training" type="object" string="Search" class="btn-primary" />
+                </sheet>
+            </form>
+                
+        </field>
+
+    </record>
+
+    <record id="action_Evaluation_Report_by_Training" model="ir.actions.act_window">
+        <field name="name">Evaluation Report by Training</field>
+        <field name="res_model">evaluation.report.by.training</field>
+        <field name="view_id" ref="Evaluation_Report_by_Training_form"/>
+        <field name="domain">[('employee_trainee.parent_id.user_id','child_of',uid)]</field>
+        <field name="target">inline</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <menuitem id="menu_dashboard_training"
+              name="Dashboard"
+              parent="Training_Management.menu_training_root"
+              action="action_Evaluation_Report_by_Training"
+              sequence="106"
+              groups="Training_Management.group_hr_training_admin_hr"/>
+
+</odoo>

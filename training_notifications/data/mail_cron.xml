@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   
+    <record id="training_notification" model="ir.cron">
+        <field name="name">Training Notification: Manager and Employees Email Reminder</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="model_id" ref="Training_Management.model_hr_training"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_first_notification_employee_manager()</field>
+    </record>
+
+</odoo>

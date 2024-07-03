@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="training_form_view" model="ir.ui.view">
+        <field name="name">Training</field>
+        <field name="model">hr.training</field>
+        <field name="arch" type="xml">
+            <form string="training">
+                <sheet>
+                    <group>
+                        <field name="name" required="True"/>
+                        <field name="organization" required="True"/>
+                        <field name="trainer" required="True"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="training_type" required="True"/>
+                        <field name="follow_up" required="True"/>
+                        <field name="company_profile" required="True"/>
+                        <field name="follow_date"/>
+                        <field name="employees">
+                            <tree editable="bottom">
+                                <field name="name" readonly="1"/>
+                                <field name="department_id" readonly="1"/>
+                            </tree>
+                        </field>
+                        <field name="number_of_participants"/>
+                        <field name="status" required="True"/>
+                        <field name="cost"/>
+                        <field name="technology" widget="many2many_tags"/>
+                        <field name="training_objective"/>
+                        <field name="online_checkbox"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="training_tree_view" model="ir.ui.view">
+        <field name="name">Training</field>
+        <field name="model">hr.training</field>
+        <field name="arch" type="xml">
+            <tree string="Training">
+                <field name="name"/>
+                <field name="combined_name" required="True"/>
+
+                <field name="organization"/>
+                <field name="trainer"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="training_type"/>
+                <field name="follow_date"/>
+                <field name="employees" widget="many2many_tags"/>
+                <field name="number_of_participants"/>
+                <field name="status"/>
+                <field name="create_uid" readonly="1"/>
+                <field name="online"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="training_organization_tree_view" model="ir.ui.view">
+        <field name="name">Training organizations</field>
+        <field name="model">training.organization</field>
+        <field name="arch" type="xml">
+            <tree string="Training organizations">
+                <field name="name" required="True"/>
+                <field name="description" required="True"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="training_trainers_tree_view" model="ir.ui.view">
+        <field name="name">Training trainers</field>
+        <field name="model">training.trainer</field>
+        <field name="arch" type="xml">
+            <tree string="Training">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="training_technology_form_view" model="ir.ui.view">
+        <field name="name">Technology Training Form</field>
+        <field name="model">training.technology</field>
+        <field name="arch" type="xml">
+            <form string="Technology">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="training_objective_form_view" model="ir.ui.view">
+        <field name="name">Training Objective Form</field>
+        <field name="model">training.objective</field>
+        <field name="arch" type="xml">
+            <form string="Training Objective">
+                <sheet>
+                    <group>
+                        <field name="training_obj"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="training_objective_tree_view" model="ir.ui.view">
+        <field name="name">Training Objective Tree</field>
+        <field name="model">training.objective</field>
+        <field name="arch" type="xml">
+            <tree string="Training Objective">
+                <field name="training_obj"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="training_technology_view_search" model="ir.ui.view">
+            <field name="name">training.technology.view.search</field>
+            <field name="model">training.technology</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+                </search>
+            </field>
+    </record>
+
+     <record id="training_objective_view_search" model="ir.ui.view">
+            <field name="name">training.objective.view.search</field>
+            <field name="model">training.objective</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+                </search>
+            </field>
+    </record>
+
+    <record id="hr_training_action" model="ir.actions.act_window">
+        <field name="name">Training</field>
+        <field name="res_model">hr.training</field>
+        <field name="domain">[]</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="training_tree_view"/>
+
+    </record>
+
+    <record id="hr_training_configuration_organizations_action" model="ir.actions.act_window">
+        <field name="name">Training organizations configuration</field>
+        <field name="res_model">training.organization</field>
+        <field name="domain">[]</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="training_organization_tree_view"/>
+
+    </record>
+
+    <record id="hr_training_configuration_trainers_action" model="ir.actions.act_window">
+        <field name="name">Training trainers configuration</field>
+        <field name="res_model">training.trainer</field>
+        <field name="domain">[]</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="training_trainers_tree_view"/>
+
+    </record>
+
+    <record id="hr_training_configuration_technology" model="ir.actions.act_window">
+        <field name="name">Training Technology configuration</field>
+        <field name="res_model">training.technology</field>
+        <field name="domain">[]</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="hr_training_objective_configuration" model="ir.actions.act_window">
+        <field name="name">Training Objective configuration</field>
+        <field name="res_model">training.objective</field>
+        <field name="domain">[]</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="training_objective_tree_view"/>
+    </record>
+
+    <menuitem id="menu_training_root"
+              name="Training Management"
+              sequence="10"
+              web_icon="Training_Management,static/description/icon.png"
+    />
+
+    <menuitem id="menu_training"
+              name="Training"
+              parent="menu_training_root"
+              action="hr_training_action"
+              sequence="10"
+              groups="Training_Management.group_hr_training_admin_hr"
+    />
+
+    <menuitem id="menu_training_configuration"
+              name="Configuration"
+              parent="menu_training_root"
+              sequence="1000"
+              groups="Training_Management.group_hr_training_admin_hr"
+    />
+
+    <menuitem id="menu_training_organizations"
+              name="organizations"
+              parent="menu_training_configuration"
+              action="hr_training_configuration_organizations_action"
+              sequence="10"
+              groups="Training_Management.group_hr_training_admin_hr"
+    />
+
+    <menuitem id="menu_training_trainers"
+              name="Trainers"
+              parent="menu_training_configuration"
+              action="hr_training_configuration_trainers_action"
+              sequence="11"
+              groups="Training_Management.group_hr_training_admin_hr"
+    />
+
+    <menuitem id="menu_training_technology"
+              name="Technology"
+              parent="menu_training_configuration"
+              action="hr_training_configuration_technology"
+              sequence="12"
+              groups="Training_Management.group_hr_training_admin_hr"
+    />
+
+    <menuitem id="menu_training_objective"
+              name="Training Objective"
+              parent="menu_training_configuration"
+              action="hr_training_objective_configuration"
+              sequence="13"
+              groups="Training_Management.group_hr_training_admin_hr"
+    />
+
+
+</odoo>
