@@ -28,6 +28,7 @@
 
         ],
     },
+    'images':'Training_Management/static/description/photo.gif',
     'demo': [],
     'qweb': [],
     'installable': True,
